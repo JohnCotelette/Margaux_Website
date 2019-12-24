@@ -1,0 +1,262 @@
+/* -------------------------- MAIN -------------------------- */
+
+main {
+    width: 100%;
+    display: flex;
+}
+
+header div {
+    border-right: 1px solid rgba(40, 40, 40, 0.5);
+}
+
+/* -------------------------- SIDEBAR -------------------------- */
+
+#sidebar {
+    border-right: 1px solid rgba(40, 40, 40, 0.5);
+    width: 35%;
+    overflow: hidden;
+    height: calc(100vh - 142px);
+    box-sizing: border-box;
+}
+
+#sidebarContent {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-right: 25px;
+}
+
+.projects {
+    margin-bottom: 35px;
+}
+
+h2 {
+    font-family: "HelveticaNowDisplayBlack", "Arial", sans-serif;
+    font-style: italic;
+    margin: 0 35px 0 0;
+    transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+
+h2:hover {
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    cursor: pointer;
+}
+
+.projects p {
+    margin: 0;
+}
+
+.projects span {
+    font-size: 1.2em;
+    line-height: 1.4em;
+}
+
+/* -------------------------- SLIDER -------------------------- */
+
+#slider {
+    display: flex;
+    flex-direction: column;
+    width: calc(65% - 45px);
+    height: calc(100vh - 162px);
+    margin-left: 45px;
+}
+
+#sliderContent {
+    width: 100%;
+    height: 100%;
+}
+
+#sliderProjectTitle {
+    margin: 0;
+    height: 60px;
+    line-height: 30px;
+}
+
+#sliderImgContainer, #sliderDefault {
+    position: relative;
+    margin: auto;
+}
+
+#sliderImgContainer {
+    height: calc(100% - 75px);
+    background-color: rgb(230, 230, 230);
+}
+
+#sliderDefault {
+    display: flex;
+    height: calc(100% - 35px);
+}
+
+#sliderDefault p {
+    margin: auto;
+}
+
+.sliderNav {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    z-index: 2;
+}
+
+#sliderNavLeft {
+    left: 0;
+    cursor: url("../../img/arrow_left.png") 16 16, pointer;
+}
+
+
+#sliderNavRight {
+    right: 0;
+    cursor: url("../../img/arrow_right.png") 16 16, pointer;
+}
+
+/* -------------------------- FOOTER -------------------------- */
+
+footer {
+    position: fixed;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    bottom: 0;
+    width: 100%;
+    height: 42px;
+    color: white;
+    background-color: rgb(2, 2, 2);
+    white-space: nowrap;
+    margin: 0 -45px;
+}
+
+footer div {
+    display: flex;
+    margin: auto 0;
+    animation: infiniteLeftSlide 28s linear infinite;
+}
+
+footer div p, .specialsChars {
+    margin: auto 7px;
+}
+
+.specialsChars {
+    position: relative;
+    vertical-align: middle;
+    font-size: 1.4em;
+}
+
+.head {
+    top: -4.5px;
+}
+
+.hand {
+    top: -2.5px;
+}
+
+/* -------------------------- ANIMATIONS -------------------------- */
+
+@keyframes infiniteLeftSlide {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes smaller {
+    0% {
+        width: 35%;
+    }
+
+    100% {
+        width: 22%;
+    }
+}
+
+@keyframes bigger {
+    0% {
+        width: calc(65% - 45px);
+    }
+
+    100% {
+        width: calc(78% - 45px);
+    }
+}
+
+@keyframes fontSizeReduce {
+    0% {
+        font-size: 100%;
+    }
+
+    100% {
+        font-size: 75%;
+    }
+}
+
+/* -------------------------- JAVASCRIPT CLASS -------------------------- */
+
+.projectsNonSelected {
+    font-size: 3em;
+}
+
+.projectSelected {
+    color: white;
+    text-shadow: 1px 1px 3px black;
+}
+
+.invisible {
+    display: none !important;
+    opacity: 0;
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.fadeOut {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+.smaller {
+    animation: smaller 0.5s ease forwards;
+}
+
+.bigger {
+    animation: bigger 0.5s ease forwards;
+}
+
+.fontSizeReduce {
+    animation: fontSizeReduce 0.5s ease forwards;
+}
+
+/* -------------------------- RESPONSIVE -------------------------- */
+
+@media (max-height: 800px) {
+    main, #slider, #sidebar {
+        min-height: 600px;
+    }
+
+    footer {
+        position: relative;
+        width: calc(100% + 90px);
+    }
+}

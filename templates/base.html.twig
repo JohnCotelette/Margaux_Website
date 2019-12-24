@@ -5,8 +5,18 @@
         <title>{% block title %}Margaux Passot{% endblock %}</title>
         {% block stylesheets %}{{ encore_entry_link_tags("app") }}{% endblock %}
     </head>
+
     <body>
-        {% block body %}{% endblock %}
+        <div id="totalPageContent">
+            {{ include("components/header.html.twig") }}
+
+            <main>
+                {% block body %}{% endblock %}
+            </main>
+
+            {% block footer %}{% endblock %}
+        </div>
+
         {% block javascripts %}{{ encore_entry_script_tags("app") }}{% endblock %}
     </body>
 </html>

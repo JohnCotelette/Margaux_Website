@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags("login") }}
+{% endblock %}
+
+{% block title %}Admin Connect{% endblock %}
+
+{% block body %}
+    <form method="post">
+        {% if error %}
+            <div id="errorLogin">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <h2>Sign in</h2>
+
+        <p>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" placeholder="Email" required autofocus>
+        </p>
+
+        <p>
+            <input type="password" name="password" id="inputPassword" placeholder="Password" required>
+        </p>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <div id="checkbox">
+            <input type="checkbox" id="remember_me" name="_remember_me" checked/>
+            <label for="remember_me">Remember me</label>
+        </div>
+
+        <button type="submit">Connect</button>
+
+        <p id="forgotPasswordLink">
+            <a href="{{ path("forgotPassword") }}">Forgotten your password ?</a>
+        </p>
+    </form>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags("login") }}
+{% endblock %}
