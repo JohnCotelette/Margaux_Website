@@ -42,8 +42,8 @@ class MailService {
     {
         $template = $this->templatesLinks[$type];
 
-        $contactMail = (new \Swift_Message("An important email from Spider Web App"))
-            ->setFrom("Spider_Web_Ads@website.com")
+        $contactMail = (new \Swift_Message("An important email from MargauxPassot.com"))
+            ->setFrom("passotmargaux@gmail.com")
             ->setTo($user->getEmail())
             ->setBody(
                 $this->view->render($template, [

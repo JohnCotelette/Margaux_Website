@@ -10,6 +10,8 @@ Encore
     .addEntry("app", "./assets/js/app.js")
     .addEntry("homepage", "./assets/js/components/homepage.js")
     .addEntry("login", "./assets/js/components/login.js")
+    .addEntry("forgotPassword", "./assets/js/components/forgotPassword.js")
+    .addEntry("changePassword", "./assets/js/components/changePassword.js")
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()

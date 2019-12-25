@@ -96,7 +96,7 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator implements Passw
             return new RedirectResponse($targetPath);
         }
 
-        $this->urlGenerator->generate("homepage");
+        return new RedirectResponse($this->urlGenerator->generate("projects"));
     }
 
     protected function getLoginUrl()

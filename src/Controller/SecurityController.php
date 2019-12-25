@@ -59,7 +59,7 @@ class SecurityController extends AbstractController
             $user = $userRep->findOneBy(["email" => $request->get("email")]);
 
             if (!$user) {
-                $this->addFlash("alert", "User not found !");
+                $this->addFlash("alert", "User not found.");
                 return $this->redirectToRoute("forgotPassword");
             }
 
@@ -80,7 +80,7 @@ class SecurityController extends AbstractController
 
             $mailService->sendMailToRecipient($user, $resetPasswordUrl, "resetPassword");
 
-            $this->addFlash("success", "Le lien pour changer ton mot de passe est dans ta boite mail (ne l'oublie pas la prochaine fois !).");
+            $this->addFlash("success", "The link to change your password is in your e-mail box.");
         }
 
         return $this->render("security/forgotPassword.html.twig");
@@ -95,7 +95,7 @@ class SecurityController extends AbstractController
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @return Response
      */
-    /*public function resetPassword(Request $request, UserRepository $userRep, ResetPasswordType $form, string $resetPasswordToken, UserPasswordEncoderInterface $passwordEncoder)
+    public function resetPassword(Request $request, UserRepository $userRep, ResetPasswordType $form, string $resetPasswordToken, UserPasswordEncoderInterface $passwordEncoder)
     {
         $user = $userRep->findOneBy(["passwordToken" => $resetPasswordToken]);
 
@@ -108,7 +108,7 @@ class SecurityController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             if (password_verify($form["password"]->getData(), $user->getPassword())) {
-                $this->addFlash("errorResetPassword", "Your old and new passwords must be different !");
+                $this->addFlash("errorResetPassword", "Your old and new passwords must be different.");
 
                 return $this->render("security/changePassword.html.twig", [
                     "form" => $form->createView(),
@@ -131,5 +131,5 @@ class SecurityController extends AbstractController
         return $this->render("security/changePassword.html.twig", [
             "form" => $form->createView(),
         ]);
-    }*/
+    }
 }

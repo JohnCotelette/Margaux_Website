@@ -5,13 +5,17 @@
     {{ encore_entry_link_tags("login") }}
 {% endblock %}
 
-{% block title %}Admin Connect{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block body %}
     <form method="post">
         {% if error %}
             <div id="errorLogin">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
+
+        {% for alertMessage in app.flashes("successResetPassword") %}
+            <div id="passwordChanged">{{ alertMessage }}</div>
+        {% endfor %}
 
         <h2>Sign in</h2>
 
@@ -39,5 +43,6 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     {{ encore_entry_script_tags("login") }}
 {% endblock %}

@@ -20,9 +20,9 @@ class SideBarController {
     };
 
     displaySlider() {
+        this.sideBarContent.classList.add("fontSizeReduce");
         this.h1Container.classList.add("smaller");
         this.sliderDefault.classList.add("fadeOut");
-        this.sideBarContent.classList.add("fontSizeReduce");
         this.sideBar.classList.add("smaller");
         this.slider.classList.add("bigger");
 
@@ -32,7 +32,7 @@ class SideBarController {
             this.sliderImgContainer.classList.remove("invisible");
             this.sliderImgContainer.classList.add("fadeIn");
         },500);
-    }
+    };
 
     displayProjectSelected(i) {
         if (this.projectSelected) {
@@ -41,7 +41,17 @@ class SideBarController {
 
         this.projectsLinks[i].classList.add("projectSelected");
         this.projectSelected = this.projectsLinks[i];
-    }
+    };
+
+    addTitleAnimation(i) {
+        this.projectsLinks[i].classList.add("titleMouseOver");
+    };
+
+    removeTitleAnimation(i) {
+        setTimeout(() => {
+            this.projectsLinks[i].classList.remove("titleMouseOver");
+        }, 200);
+    };
 
     initControls() {
         for (let i = 0; i < this.projectsLinks.length; i++) {
@@ -52,6 +62,14 @@ class SideBarController {
                 }
 
                 this.displayProjectSelected(i);
+            });
+
+            this.projectsLinks[i].addEventListener("mouseover", () => {
+                this.addTitleAnimation(i);
+            });
+
+            this.projectsLinks[i].addEventListener("mouseout", () => {
+                this.removeTitleAnimation(i);
             });
         }
     };

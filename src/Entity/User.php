@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -30,6 +31,13 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(
+     *     min=9,
+     *     max=30,
+     *     minMessage="Your password must be more than 8 characters.",
+     *     maxMessage="Your password must be less than 31 characters."
+     * )
+     * @Assert\NotBlank()
      */
     private $password;
 
@@ -121,7 +129,7 @@ class User implements UserInterface
         return $this->passwordToken;
     }
 
-    public function setPasswordToken(string $passwordToken): self
+    public function setPasswordToken($passwordToken): self
     {
         $this->passwordToken = $passwordToken;
 
