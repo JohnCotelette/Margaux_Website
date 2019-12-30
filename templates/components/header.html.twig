@@ -5,8 +5,14 @@
 
     <nav>
         <ul>
+            {% if is_granted("ROLE_ADMIN") %}
+                <li class="adminLinks"><a href="{{ path("logout") }}">Logout</a></li>
+                {% block projectsLink %}
+                    <li class="adminLinks"><a href="{{ path("projects_index") }}">Projects</a></li>
+                {% endblock %}
+            {% endif %}
             <li><a href="#">About</a></li>
-            <li><a href="https://www.instagram.com/passotmargaux/">Instagram</a></li>
+            <li><a target="_blank" href="https://www.instagram.com/passotmargaux/">Instagram</a></li>
         </ul>
     </nav>
 </header>

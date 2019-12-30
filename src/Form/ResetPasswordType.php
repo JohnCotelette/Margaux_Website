@@ -32,7 +32,7 @@ class ResetPasswordType extends AbstractType
                     new NotBlank(),
                     new Regex([
                         "pattern" => "/^\S+$/",
-                        "message" => "Don't use space in your new password."
+                        "message" => "Don't use spaces in your new password."
                     ])
                 ],
                 "options" => ["attr" => ["class" => "password-field"]],

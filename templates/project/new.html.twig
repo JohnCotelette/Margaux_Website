@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags("projectNew") }}
+{% endblock %}
+
+{% block title %}New Project{% endblock %}
+
+{% block body %}
+    <div id="container">
+        <div id="scrollable">
+            <h2>Create new Project</h2>
+
+            {{ include("form/projectForm.html.twig") }}
+        </div>
+
+        <div id="returnListProjectControllerContainer">
+            <p>
+                <a href="{{ path('projects_index') }}">Return to your projects list</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags("projectNew") }}
+{% endblock %}

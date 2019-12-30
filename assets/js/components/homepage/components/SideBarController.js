@@ -20,6 +20,7 @@ class SideBarController {
     };
 
     displaySlider() {
+        this.sliderDefault.classList.add("invisible");
         this.sideBarContent.classList.add("fontSizeReduce");
         this.h1Container.classList.add("smaller");
         this.sliderDefault.classList.add("fadeOut");
@@ -27,7 +28,6 @@ class SideBarController {
         this.slider.classList.add("bigger");
 
         setTimeout(() => {
-            this.sliderDefault.classList.add("invisible");
             this.sliderTitle.classList.remove("invisible");
             this.sliderImgContainer.classList.remove("invisible");
             this.sliderImgContainer.classList.add("fadeIn");

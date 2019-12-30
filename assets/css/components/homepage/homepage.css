@@ -1,8 +1,12 @@
 /* -------------------------- MAIN -------------------------- */
 
-main {
+main, #slider, #sliderDefault, #textHiddenContainer, footer, footer div {
     width: 100%;
     display: flex;
+}
+
+#sliderImgContainer, #sliderDefault, #textHiddenContainer p, .specialsChars, .specialsCharsFooter1, .specialsCharsFooter2 {
+    position: relative;
 }
 
 header div {
@@ -31,8 +35,8 @@ header div {
 }
 
 h2 {
-    font-family: "HelveticaNowDisplayBlack", "Arial", sans-serif;
     margin: 0 35px 7px 0;
+    font-family: "HelveticaNowDisplayBlack", "Arial", sans-serif;
     transition: color 0.42s ease, text-shadow 0.42s ease, transform 0.42s ease;
     letter-spacing: 1px;
     line-height: 1em;
@@ -50,11 +54,10 @@ h2 {
 /* -------------------------- SLIDER -------------------------- */
 
 #slider {
-    display: flex;
     flex-direction: column;
-    width: calc(65% - 45px);
-    height: calc(100vh - 162px);
-    margin-left: 45px;
+    width: calc(65% - 30px);
+    height: calc(100vh - 142px);
+    margin-left: 30px;
 }
 
 #sliderContent {
@@ -69,80 +72,139 @@ h2 {
 }
 
 #sliderImgContainer, #sliderDefault {
-    position: relative;
     margin: auto;
 }
 
 #sliderImgContainer {
-    height: calc(100% - 75px);
+    height: calc(100% - 87px);
     background-color: rgb(230, 230, 230);
 }
 
 #sliderDefault {
-    display: flex;
     height: calc(100% - 35px);
+    overflow: hidden;
 }
 
-#sliderDefault p {
+#drawToMakeAppear {
+    z-index: 1;
+    position: absolute;
+    cursor: url("../../../img/bancoCursor.png") 16 16, pointer;
+}
+
+#textHiddenContainer {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+#textHiddenContainer p {
+    font-size: 3.2em;
+    color: white;
     margin: auto;
 }
 
-.sliderNav {
+#copyOfTextHidden {
     position: absolute;
-    width: 25%;
+    width: 100%;
     height: 100%;
-    z-index: 2;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.haveToDisapear {
+    pointer-events: auto;
+}
+
+.x {
+    color: black;
+}
+
+.sliderNav {
+    width: 50%;
+    height: 100%;
+    z-index: 1;
 }
 
 #sliderNavLeft {
-    left: 0;
-    cursor: url("../../img/arrow_left.png") 16 16, pointer;
+    cursor: url("../../../img/arrow_left.png") 16 16, pointer;
 }
 
-
 #sliderNavRight {
+    cursor: url("../../../img/arrow_right.png") 16 16, pointer;
+    position: absolute;
+    top: 0;
     right: 0;
-    cursor: url("../../img/arrow_right.png") 16 16, pointer;
+}
+
+.specialsChars {
+    top: 2px;
+}
+
+.specialsChars img {
+    height: auto;
+}
+
+.hand2 {
+    width: 50px;
+}
+
+.victory {
+    width: 30px;
+}
+
+.star, .write {
+    width: 45px;
+}
+
+.mail {
+    width: 38px;
+}
+
+.arrow {
+    width: 40px;
 }
 
 /* -------------------------- FOOTER -------------------------- */
 
 footer {
     position: fixed;
-    display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
     bottom: 0;
-    width: 100%;
+    left: 0;
+    width: calc(100% + 60px);
     height: 42px;
     color: white;
     background-color: rgb(2, 2, 2);
     white-space: nowrap;
-    margin: 0 -45px;
+    margin: 0 -30px;
 }
 
 footer div {
-    display: flex;
     margin: auto 0;
     animation: infiniteLeftSlide 28s linear infinite;
 }
 
-footer div p, .specialsChars {
-    margin: auto 7px;
+footer div p, .specialsCharsFooter1, .specialsCharsFooter2 {
+    margin: auto 8px;
 }
 
-.specialsChars {
-    position: relative;
-    vertical-align: middle;
-    font-size: 1.4em;
+.specialsCharsFooter1 {
+    top: 3px;
+}
+
+.specialsCharsFooter2 {
+    top: 1px;
 }
 
 .head {
-    top: -4.5px;
+    width: 20px;
 }
 
 .hand {
-    top: -2.5px;
+    width: 28px;
 }
 
 /* -------------------------- ANIMATIONS -------------------------- */
@@ -154,26 +216,6 @@ footer div p, .specialsChars {
 
     100% {
         transform: translate(-100%, 0);
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
     }
 }
 
@@ -189,11 +231,11 @@ footer div p, .specialsChars {
 
 @keyframes bigger {
     0% {
-        width: calc(65% - 45px);
+        width: calc(65% - 30px);
     }
 
     100% {
-        width: calc(75% - 45px);
+        width: calc(75% - 30px);
     }
 }
 
@@ -210,7 +252,7 @@ footer div p, .specialsChars {
 /* -------------------------- JAVASCRIPT CLASS -------------------------- */
 
 .projectsNonSelected {
-    font-size: 3em;
+    font-size: 3.25em;
 }
 
 .projectSelected {
@@ -222,6 +264,10 @@ footer div p, .specialsChars {
 .invisible {
     display: none !important;
     opacity: 0;
+}
+
+.notVisible {
+    visibility: hidden;
 }
 
 .fadeIn {
@@ -255,17 +301,26 @@ footer div p, .specialsChars {
 
 /* -------------------------- RESPONSIVE -------------------------- */
 
-@media (max-height: 800px) {
+@media (max-height: 700px) {
     main, #slider, #sidebar {
         min-height: 600px;
     }
 
-    #slider {
-        margin-bottom: 20px;
-    }
-
     footer {
         position: relative;
-        width: calc(100% + 90px);
+    }
+}
+
+@media (max-width: 500px) {
+    footer {
+        width: calc(100% + 50px);
+        margin: 0 -25px;
+    }
+}
+
+@media (max-width: 400px) {
+    footer {
+        width: calc(100% + 40px);
+        margin: 0 -20px;
     }
 }

@@ -7,12 +7,12 @@
 
 {% block body %}
     {{ parent() }}
-    {{ include("components/sidebar.html.twig") }}
-    {{ include("components/slider.html.twig") }}
+    {{ include("home/components/sidebar.html.twig") }}
+    {{ include("home/components/slider.html.twig") }}
 {% endblock %}
 
 {% block footer %}
-    {{ include("components/footer.html.twig") }}
+    {{ include("home/components/footer.html.twig") }}
 {% endblock %}
 
 {% block javascripts %}

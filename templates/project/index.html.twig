@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags("projectsList") }}
+{% endblock %}
+
+{% block title %}Project index{% endblock %}
+
+{% block body %}
+    <div id="container">
+        <div id="scrollable">
+            <h2>List of your projects</h2>
+
+            <div id="projectsContainer">
+                {% for project in projects %}
+                    <div class="projectContainer">
+                        <div>
+                            <p class="projectTitles">{{ project.title }}</p>
+                        </div>
+
+                        <div>
+                            <p>Category :</p>
+                            <p>{{ project.category }}</p>
+                        </div>
+
+                        <div>
+                            <p>Description :</p>
+                            <p>{{ project.description }}</p>
+                        </div>
+
+                        <div>
+                            <p>Date :</p>
+                            <p>{{ project.date }}</p>
+                        </div>
+
+                        <div class="projectControllersContainers">
+                            <span class="editControllers">
+                                <a class="controllers projectControllers" href="{{ path("project_edit", {"id" : project.id}) }}">Edit</a>
+                            </span>
+
+                            {{ include("form/projectFormDelete.twig")}}
+                        </div>
+                    </div>
+                {% else %}
+                    <div id="noProject">
+                        <p>Margaux, you have no project in the database.</p>
+                    </div>
+                {% endfor %}
+            </div>
+            <div id="newProjectControllerContainer">
+                <p>
+                   <a href="{{ path('project_new') }}">Create new</a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags("projectsList") }}
+{% endblock %}
