@@ -13,6 +13,7 @@ class Canvas {
     getPosition(e) {
         let typeE = e.type;
         let rect = this.canvas.getBoundingClientRect();
+
         if (typeE === "mousemove") {
             return {
                 x: e.clientX - rect.left,
@@ -30,16 +31,39 @@ class Canvas {
         let MousePosition = this.getPosition(e);
         let positionX = MousePosition.x;
         let positionY = MousePosition.y;
+
         this.draw(positionX, positionY);
+    };
+
+    transformEvent(e) {
+        let typeE = e.type;
+
+        if (typeE === "touchstart") {
+            let mouseEvent = new MouseEvent("mouseover", {});
+            this.canvas.dispatchEvent(mouseEvent);
+        } else if (typeE === "touchend") {
+            let mouseEvent = new MouseEvent("mouseout", {});
+            this.canvas.dispatchEvent(mouseEvent);
+        } else if (typeE === "touchmove") {
+            let touch = e.touches[0];
+            let mouseEvent = new MouseEvent("mousemove", {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+
+            this.canvas.dispatchEvent(mouseEvent);
+        };
     };
 
     startDraw(e) {
         this.dessin = true;
+
         this.draw(e);
     };
 
     endDraw() {
         this.dessin = false;
+
         this.ctx.beginPath();
     };
 
@@ -60,7 +84,6 @@ class Canvas {
     };
 
     hideSymbols(symbol) {
-        console.log("lol");
         symbol.classList.add("notVisible");
     }
 
@@ -69,6 +92,7 @@ class Canvas {
         this.ctx.canvas.height = this.canvasContainer.clientHeight + 600;
 
         this.ctx.fillStyle = this.backgroundColor;
+
         this.ctx.fillRect(0,0, this.canvas.width, this.canvas.height);
     }
 
@@ -77,7 +101,24 @@ class Canvas {
         this.canvas.addEventListener("mouseout", this.endDraw.bind(this));
         this.canvas.addEventListener("mousemove", this.movePosition.bind(this));
 
+        this.canvas.addEventListener("touchstart", this.transformEvent.bind(this));
+        document.addEventListener("touchend", this.transformEvent.bind(this));
+        this.canvas.addEventListener("touchmove", this.transformEvent.bind(this));
+
+        this.canvas.addEventListener("touchstart", function(e) {
+            e.preventDefault();
+        }, false);
+        this.canvas.addEventListener("touchend", function(e) {
+            e.preventDefault();
+        }, false);
+        this.canvas.addEventListener("touchmove", function(e) {
+            e.preventDefault();
+        }, false);
+
         this.haveToDisapearSymbols.forEach((symbol) => {
+            symbol.addEventListener("mouseover", () => {
+                this.hideSymbols(symbol);
+            });
             symbol.addEventListener("mousemove", () => {
                this.hideSymbols(symbol);
             });

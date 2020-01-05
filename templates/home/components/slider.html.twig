@@ -1,15 +1,28 @@
-<div id="slider">
+<section id="slider">
     <div id="sliderContent">
-        <p id="sliderProjectTitle" class="invisible">Project Title</p>
+        <p id="sliderProjectTitle" class="invisible"></p>
 
         <div id="sliderImgContainer" class="invisible">
-            <div id="sliderNavLeft" class="sliderNav"></div>
-            <div id="sliderNavRight" class="sliderNav"></div>
+            <div id="sliderScrollable"></div>
         </div>
 
         <div id="sliderDefault">
+            <div id="sliderDefaultMobile">
+                <p>
+                    <img src="{{ asset("build/images/arrowTop_black.79f1f5d5.png") }}" alt="Project Select Indicator" /><br>
+                    Select a project
+                </p>
+
+                <p>
+                    Margaux. 25. Artistic<br>
+                    director. Based in<br>
+                    Lille, France. Creative.
+                </p>
+            </div>
+
             <canvas id="drawToMakeAppear">
             </canvas>
+
             <div id="textHiddenContainer">
                 <p>
                     Margaux <span class="specialsChars"><img src="{{ asset("build/images/hand_white.e887120d.png") }}" alt="Hand right" class="hand2"/></span>. 25 <span class="specialsChars"><img src="{{ asset("build/images/victory_white.329ceaa5.png") }}" alt="Victory" class="victory"/></span>. Artistic director <span class="specialsChars"><img src="{{ asset("build/images/star_white.1ed60e45.png") }}" alt="Star" class="star"/></span>.<br>
@@ -31,4 +44,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>

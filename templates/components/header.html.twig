@@ -7,9 +7,9 @@
         <ul>
             {% if is_granted("ROLE_ADMIN") %}
                 <li class="adminLinks"><a href="{{ path("logout") }}">Logout</a></li>
-                {% block projectsLink %}
+                {% if app.request.attributes.get("_route") != "projects_index" %}
                     <li class="adminLinks"><a href="{{ path("projects_index") }}">Projects</a></li>
-                {% endblock %}
+                {% endif %}
             {% endif %}
             <li><a href="#">About</a></li>
             <li><a target="_blank" href="https://www.instagram.com/passotmargaux/">Instagram</a></li>

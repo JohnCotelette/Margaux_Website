@@ -1,7 +1,10 @@
 <?php
+
 namespace App\Service;
 use App\Entity\User;
+use Swift_Mailer;
 use Twig\Environment;
+
 /**
  * Class MailService
  * @package App\Service
@@ -13,19 +16,23 @@ class MailService {
     private $view;
 
     /**
-     * @var \Swift_Mailer
+     * @var Swift_Mailer
      */
-
     private $mailer;
+
     /**
      * MailService constructor.
-     * @param \Swift_Mailer $mailer
+     * @param Swift_Mailer $mailer
      * @param Environment $view
      */
-
     private $templatesLinks;
 
-    public function __construct(\Swift_Mailer $mailer, Environment $view) {
+    /**
+     * MailService constructor.
+     * @param Swift_Mailer $mailer
+     * @param Environment $view
+     */
+    public function __construct(Swift_Mailer $mailer, Environment $view) {
         $this->mailer = $mailer;
         $this->view = $view;
         $this->templatesLinks = [
