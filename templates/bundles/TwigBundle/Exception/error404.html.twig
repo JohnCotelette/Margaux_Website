@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags("404") }}
+{% endblock %}
+
+{% block title %}Error, page not found :({% endblock %}
+
+{% block body %}
+    <div id="errorMessageContainer">
+        <figure>
+            <img src="{{ asset("build/images/error_smile.a794c828.png") }}" alt="Sad head" />
+        </figure>
+
+        <h2>Page not found</h2>
+
+        <p>
+            The requested page doesn't exist.<br> Checkout for any URL
+            misspelling or click <a id="errorRedirectLink" href="{{ path('homepage') }}">here</a> to return to the homepage</a>.
+        </p>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags("404") }}
+{% endblock %}

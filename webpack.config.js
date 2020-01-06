@@ -15,6 +15,7 @@ Encore
     .addEntry("changePassword", "./assets/js/components/others/changePassword.js")
     .addEntry("projectsList", "./assets/js/components/others/projectsList.js")
     .addEntry("projectNew", "./assets/js/components/others/projectNew.js")
+    .addEntry("404", "./assets/js/components/errors/404.js")
     .autoProvidejQuery()
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
