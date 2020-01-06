@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block footer %}
-    {{ include("home/components/footer.html.twig") }}
+    {{ include("components/footer.html.twig") }}
 {% endblock %}
 
 {% block javascripts %}

@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Project;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -36,11 +37,15 @@ class ProjectType extends AbstractType
                     "class" => "newProjectInputs"
                 ]
             ])
-            ->add("date", TextType::class, [
+            ->add("date", DateType::class, [
+                "format"          => "dd MMM yyyy",
+                "years"           => range(date("Y") + 1, date("Y") - 10),
+                "days"            => [1],
+                "html5" => false,
                 "label" => "Date",
                 "required" => true,
                 "attr" => [
-                    "class" => "newProjectInputs"
+                    "class" => "newProjectInputs js-datepicker",
                 ]
             ])
 

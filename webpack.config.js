@@ -9,6 +9,7 @@ Encore
     .setPublicPath('/build')
     .addEntry("app", "./assets/js/app.js")
     .addEntry("homepage", "./assets/js/components/homepage/homepage.js")
+    .addEntry("about", "./assets/js/components/others/about.js")
     .addEntry("login", "./assets/js/components/others/login.js")
     .addEntry("forgotPassword", "./assets/js/components/others/forgotPassword.js")
     .addEntry("changePassword", "./assets/js/components/others/changePassword.js")

@@ -123,6 +123,54 @@ header h1 {
     background-color: rgb(60, 60, 60);
 }
 
+/* -------------------------- FOOTER -------------------------- */
+
+footer, footer div {
+    width: 100%;
+    display: flex;
+}
+
+footer {
+    position: fixed;
+    flex-wrap: nowrap;
+    bottom: 0;
+    left: 0;
+    width: 6000px;
+    height: 42px;
+    color: white;
+    background-color: rgb(2, 2, 2);
+    white-space: nowrap;
+}
+
+footer div {
+    margin: auto 0;
+    animation: infiniteLeftSlide 28s linear infinite;
+}
+
+footer div p, .specialsCharsFooter1, .specialsCharsFooter2 {
+    margin: auto 8px;
+}
+
+.specialsCharsFooter1, .specialsCharsFooter2 {
+    position: relative;
+}
+
+.specialsCharsFooter1 {
+    top: 3px;
+}
+
+.specialsCharsFooter2 {
+    top: 1px;
+}
+
+.head {
+    width: 20px;
+}
+
+.hand {
+    width: 28px;
+}
+
 /* -------------------------- ANIMATIONS -------------------------- */
 
 @keyframes fadeIn {
@@ -145,7 +193,19 @@ header h1 {
     }
 }
 
+@keyframes infiniteLeftSlide {
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
 /* -------------------------- RESPONSIVE -------------------------- */
+
+@media (max-height: 600px) {
+    footer {
+        display: none;
+    }
+}
 
 @media (max-width: 570px) {
     header {

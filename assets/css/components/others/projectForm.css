@@ -1,6 +1,6 @@
 /* -------------------------- MAIN -------------------------- */
 
-main, form div, #returnListProjectControllerContainer, .project_pictures-collection-actions {
+main, form div, #returnListProjectControllerContainer, .project_pictures-collection-actions, #project_date {
     display: flex;
 }
 
@@ -194,6 +194,21 @@ form div ul li {
     top: 0;
     left: 0;
     content: "Click here to see the picture";
+}
+
+#project_date_day {
+    display: none;
+}
+
+#project_date {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0;
+}
+
+#project_date_month, #project_date_year {
+    display: block;
+    width: 45%;
 }
 
 /* -------------------------- RESPONSIVE -------------------------- */

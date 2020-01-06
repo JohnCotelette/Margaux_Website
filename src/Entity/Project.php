@@ -56,21 +56,14 @@ class Project
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=6)
-     * @Assert\Length(
-     *     min=4,
-     *     max=6,
-     *     minMessage="The date must be more than 3 characters (example : 2019 = 4 characters).",
-     *     maxMessage="The date must be less than 7 characters (example : [2019] = 6 characters)."
-     * )
-     * @Assert\NotBlank()
-     */
-    private $date;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Picture", mappedBy="project", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $pictures;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date;
 
     public function __construct()
     {
@@ -118,12 +111,12 @@ class Project
         return $this;
     }
 
-    public function getDate(): ?string
+    public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
     }
 
-    public function setDate(string $date): self
+    public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
 

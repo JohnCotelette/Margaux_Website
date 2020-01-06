@@ -8,10 +8,14 @@
             {% if is_granted("ROLE_ADMIN") %}
                 <li class="adminLinks"><a href="{{ path("logout") }}">Logout</a></li>
                 {% if app.request.attributes.get("_route") != "projects_index" %}
-                    <li class="adminLinks"><a href="{{ path("projects_index") }}">Projects</a></li>
+                    <li class="adminLinks"><a href="{{ path("projects_index") }}">Admin</a></li>
                 {% endif %}
             {% endif %}
-            <li><a href="#">About</a></li>
+            {% if app.request.attributes.get("_route") == "homepage" %}
+                <li><a href="{{ path("about") }}">About</a></li>
+            {% else %}
+                <li><a href="{{ path("homepage") }}">Projects</a></li>
+            {% endif %}
             <li><a target="_blank" href="https://www.instagram.com/passotmargaux/">Instagram</a></li>
         </ul>
     </nav>

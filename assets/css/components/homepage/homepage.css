@@ -1,12 +1,11 @@
 /* -------------------------- MAIN -------------------------- */
 
-main, #slider, #sliderDefault, #textHiddenContainer, footer, footer div {
+main, #slider, #sliderDefault, #textHiddenContainer {
     width: 100%;
     display: flex;
 }
 
-#sliderDefault, #textHiddenContainer p, .specialsChars, .specialsCharsFooter1,
-.specialsCharsFooter2, #sliderContent {
+#sliderDefault, #textHiddenContainer p, .specialsChars, #sliderContent {
     position: relative;
 }
 
@@ -183,52 +182,7 @@ h2 {
     display: none;
 }
 
-/* -------------------------- FOOTER -------------------------- */
-
-footer {
-    position: fixed;
-    flex-wrap: nowrap;
-    bottom: 0;
-    left: 0;
-    width: 6000px;
-    height: 42px;
-    color: white;
-    background-color: rgb(2, 2, 2);
-    white-space: nowrap;
-}
-
-footer div {
-    margin: auto 0;
-    animation: infiniteLeftSlide 28s linear infinite;
-}
-
-footer div p, .specialsCharsFooter1, .specialsCharsFooter2 {
-    margin: auto 8px;
-}
-
-.specialsCharsFooter1 {
-    top: 3px;
-}
-
-.specialsCharsFooter2 {
-    top: 1px;
-}
-
-.head {
-    width: 20px;
-}
-
-.hand {
-    width: 28px;
-}
-
 /* -------------------------- ANIMATIONS -------------------------- */
-
-@keyframes infiniteLeftSlide {
-    100% {
-        transform: translateX(-100%);
-    }
-}
 
 @keyframes smaller {
     0% {
@@ -336,12 +290,6 @@ footer div p, .specialsCharsFooter1, .specialsCharsFooter2 {
 
 /* -------------------------- RESPONSIVE -------------------------- */
 
-@media (max-height: 600px) {
-    footer {
-        display: none;
-    }
-}
-
 @media (max-height: 600px) and (min-width: 1231px) {
     main, #slider, #sidebar {
         min-height: 550px;
@@ -394,6 +342,10 @@ footer div p, .specialsCharsFooter1, .specialsCharsFooter2 {
 }
 
 @media (max-width: 1230px) {
+    #totalPageContent {
+        width: 100%;
+    }
+
     body {
         display: flex;
     }
@@ -415,13 +367,13 @@ footer div p, .specialsCharsFooter1, .specialsCharsFooter2 {
     #slider {
         width: 100%;
         height: 100%;
-        max-height: calc(100vh - 210px);
+        max-height: calc(100vh - 205px);
         margin-left: 0;
         flex: 1;
     }
 
     #sliderDefault {
-        max-height: calc(100vh - 365px);
+        max-height: calc(100vh - 345px);
     }
 
     #sidebar {
@@ -493,7 +445,7 @@ footer div p, .specialsCharsFooter1, .specialsCharsFooter2 {
     }
 
     #sliderDefault {
-        max-height: calc(100vh - 320px);
+        max-height: calc(100vh - 300px);
     }
 
     #drawToMakeAppear, #textHiddenContainer {
@@ -528,6 +480,10 @@ footer div p, .specialsCharsFooter1, .specialsCharsFooter2 {
 
     #sidebar {
         margin: 0 0 15px 0;
+    }
+
+    #sliderDefault {
+        max-height: calc(100vh - 285px);
     }
 }
 

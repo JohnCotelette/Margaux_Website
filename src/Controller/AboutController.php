@@ -2,23 +2,18 @@
 
 namespace App\Controller;
 
-use App\Service\PdfConvertorService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AboutController extends AbstractController
 {
     /**
      * @Route("/about", name="about", methods={"GET"})
-     * @param PdfConvertorService $pdfConvertorService
-     * @return string
+     * @return Response
      */
-    public function index(PdfConvertorService $pdfConvertorService)
+    public function index()
     {
-        $template = $this->renderView("pdf/about.html.twig", []);
-
-        $pdfConvertorService->generatePdf();
-
-        return $pdfConvertorService->generatePdf($template, "MargauxCV");
+        return $this->render("about/index.html.twig");
     }
 }

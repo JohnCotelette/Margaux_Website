@@ -4,13 +4,13 @@
         <div class="projects">
             <h2 class="projectsNonSelected" data-projectId="{{ project.id }}">{{ project.title | upper }}</h2>
             <p>
-                <span>{{ project.category }}</span><br>
-                <span>{{ project.date }}</span>
+                <span>[{{ project.category }}]</span><br>
+                <span>[{{ project.date | date("Y") }}]</span>
             </p>
         </div>
         {% else %}
         <div class="projects">
-            No projects
+            No projects to see :(
         </div>
     {% endfor %}
     </div>

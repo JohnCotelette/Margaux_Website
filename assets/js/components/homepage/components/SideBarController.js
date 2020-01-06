@@ -35,7 +35,7 @@ class SideBarController extends Ajax {
     getPictures(projectId) {
         this.getData("/api/projects/" + projectId + "/pictures", (response) => {
             if (response["picturesLinks"]) {
-                this.sliderTitle.textContent = response["projectDescription"];
+                this.sliderTitle.textContent = "[" + response["projectDescription"] + "]";
 
                 let picturesLinks = response["picturesLinks"];
 
@@ -60,7 +60,8 @@ class SideBarController extends Ajax {
             }
             else {
                 this.resetSlider();
-                this.sliderTitle.textContent = response["message"];
+
+                this.sliderTitle.textContent = "[" + response["message"] + "]";
             }
         });
     };
