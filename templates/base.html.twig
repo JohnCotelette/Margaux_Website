@@ -4,12 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <meta name="format-detection" content="telephone=no">
-
+        <meta name="description" content="Margaux Passot, 25 ans, directrice artistique basée à Lille, France.">
         <link rel="shortcut icon" type="image/png" href="{{ asset("build/images/smile_black.4c958b7a.png") }}">
 
-        <title>{% block title %}Margaux Passot{% endblock %}</title>
+        <title>
+            {% block title %}
+                Margaux Passot - Directrice Artistique - Lille/France - Works
+            {% endblock %}
+        </title>
 
-        {% block stylesheets %}{{ encore_entry_link_tags("app") }}{% endblock %}
+        {{ encore_entry_link_tags("app") }}
+        {% block stylesheets %}{% endblock %}
     </head>
 
     <body>
@@ -23,6 +28,7 @@
             {% block footer %}{% endblock %}
         </div>
 
-        {% block javascripts %}{{ encore_entry_script_tags("app") }}{% endblock %}
+        {{ encore_entry_script_tags("app") }}
+        {% block javascripts %}{% endblock %}
     </body>
 </html>

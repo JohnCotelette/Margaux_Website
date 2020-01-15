@@ -2,7 +2,7 @@ class Canvas {
     constructor() {
         this.canvasContainer = document.getElementById("sliderDefault");
         this.canvas = document.getElementById("drawToMakeAppear");
-        this.haveToDisapearSymbols = document.getElementsByClassName("haveToDisapear");
+        this.haveToDisapearSymbols = document.getElementsByClassName("symbols");
 
         this.dessin = null;
         this.ctx = this.canvas.getContext("2d");
@@ -84,7 +84,7 @@ class Canvas {
     };
 
     hideSymbols(symbol) {
-        symbol.classList.add("notVisible");
+        symbol.classList.remove("haveToDisapear");
     }
 
     init() {
@@ -115,14 +115,11 @@ class Canvas {
             e.preventDefault();
         }, false);
 
-        this.haveToDisapearSymbols.forEach((symbol) => {
-            symbol.addEventListener("mouseover", () => {
-                this.hideSymbols(symbol);
-            });
-            symbol.addEventListener("mousemove", () => {
-               this.hideSymbols(symbol);
-            });
-        });
+        for (let i = 0; i < this.haveToDisapearSymbols.length; i++) {
+            this.haveToDisapearSymbols[i].addEventListener("mouseover", () => {
+                this.hideSymbols(this.haveToDisapearSymbols[i]);
+            })
+        }
     };
 }
 

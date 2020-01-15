@@ -112,49 +112,23 @@ h2 {
     margin: auto;
 }
 
-#copyOfTextHidden {
+.specialsChars {
+    font-family: "itc_zapf_dingbatsregular", Arial, sans-serif;
+}
+
+.specialsChars i {
+    position: relative;
+    width: 200%;
+    font-style: inherit;
+}
+
+.haveToDisapear:after {
     position: absolute;
-    height: 100%;
     top: 0;
     left: 0;
-    z-index: 1000;
-    pointer-events: none;
-}
-
-.haveToDisapear {
-    pointer-events: auto;
-}
-
-.x {
+    z-index: 2;
     color: black;
-}
-
-.specialsChars {
-    top: 2px;
-}
-
-.specialsChars img {
-    height: auto;
-}
-
-.hand2 {
-    width: 50px;
-}
-
-.victory {
-    width: 30px;
-}
-
-.star, .write {
-    width: 45px;
-}
-
-.mail {
-    width: 38px;
-}
-
-.arrow {
-    width: 40px;
+    content: attr(data-content);
 }
 
 #sliderScrollable {

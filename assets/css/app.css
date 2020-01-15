@@ -22,6 +22,16 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'itc_zapf_dingbatsregular';
+    src: url('fonts/itczapfdingbats-webfont.woff2') format('woff2'),
+    url('fonts/itczapfdingbats-webfont.woff') format('woff'),
+    url('fonts/itczapfdingbats-webfont.ttf') format('truetype'),
+    url('fonts/itczapfdingbats-webfont.svg#itc_zapf_dingbatsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* -------------------------- GLOBAL -------------------------- */
 
 body {
@@ -51,6 +61,10 @@ ul {
 main {
     flex: 1;
     animation: fadeIn 0.5s ease both;
+}
+
+.specialsCharsFamily {
+    font-family: "itc_zapf_dingbatsregular", "HelveticaNowDisplay", sans-serif;
 }
 
 /* -------------------------- HEADER -------------------------- */
@@ -127,7 +141,11 @@ header h1 {
 
 footer, footer div {
     width: 100%;
+}
+
+footer, footer div, footer div p {
     display: flex;
+    height: 42px;
 }
 
 footer {
@@ -136,7 +154,6 @@ footer {
     bottom: 0;
     left: 0;
     width: 6000px;
-    height: 42px;
     color: white;
     background-color: rgb(2, 2, 2);
     white-space: nowrap;
@@ -147,28 +164,29 @@ footer div {
     animation: infiniteLeftSlide 28s linear infinite;
 }
 
-footer div p, .specialsCharsFooter1, .specialsCharsFooter2 {
-    margin: auto 8px;
+footer div p {
+    margin: auto 12px 0 0;
 }
 
-.specialsCharsFooter1, .specialsCharsFooter2 {
+footer a, footer span {
+    display: block;
+    margin: auto;
+}
+
+.specialsCharsFooter {
     position: relative;
-}
-
-.specialsCharsFooter1 {
-    top: 3px;
-}
-
-.specialsCharsFooter2 {
     top: 1px;
+    font-size: 1.9em;
+    margin: auto 10px;
 }
 
-.head {
-    width: 20px;
+.specialsCharsFooter i {
+    font-style: inherit;
 }
 
-.hand {
-    width: 28px;
+.footerSmile {
+    top: -4px;
+    margin: auto 5px;
 }
 
 /* -------------------------- ANIMATIONS -------------------------- */
