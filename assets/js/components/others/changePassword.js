@@ -1,0 +1,1 @@
+import "../../../css/components/others/changePassword.css";

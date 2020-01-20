@@ -1,0 +1,474 @@
+/* -------------------------- MAIN -------------------------- */
+
+main, #slider, #sliderDefault, #textHiddenContainer {
+    width: 100%;
+    display: flex;
+}
+
+#sliderDefault, #textHiddenContainer p, .specialsChars, #sliderContent {
+    position: relative;
+}
+
+#sidebarScrollable, #sliderContent, #textHiddenContainer, #copyOfTextHidden {
+    width: 100%;
+}
+
+#sidebarScrollable, #sliderContent, .sliderPictures, #sliderScrollable  {
+    height: 100%;
+}
+
+header {
+    transition: all 0.2s ease;
+}
+
+header div {
+    border-right: 1px solid rgba(40, 40, 40, 0.5);
+}
+
+#totalPageContent {
+    overflow: hidden;
+}
+
+/* -------------------------- SIDEBAR -------------------------- */
+
+#sidebar {
+    border-right: 1px solid rgba(40, 40, 40, 0.5);
+    width: 35%;
+    height: calc(100vh - 142px);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#sidebarScrollable {
+    padding-right: 25px;
+    overflow: auto;
+}
+
+.projects {
+    margin-bottom: 20px;
+    padding-left: 2px;
+}
+
+h2 {
+    margin: 0 35px 7px 0;
+    font-family: "HelveticaNowDisplayBlack", "Arial", sans-serif;
+    transition: color 0.42s ease, text-shadow 0.42s ease, transform 0.42s ease;
+    letter-spacing: 1px;
+    line-height: 1em;
+    transform-origin: left;
+}
+
+.projects p {
+    margin: 0;
+}
+
+.projects span {
+    line-height: 1.4em;
+}
+
+/* -------------------------- SLIDER -------------------------- */
+
+#slider {
+    flex-direction: column;
+    width: calc(65% - 30px);
+    height: calc(100vh - 142px);
+    margin-left: 30px;
+}
+
+#sliderProjectTitle {
+    margin: 0;
+    height: 60px;
+    line-height: 30px;
+}
+
+#sliderImgContainer, #sliderDefault {
+    margin: auto;
+}
+
+#sliderImgContainer {
+    height: calc(100% - 87px);
+    overflow: hidden;
+}
+
+#sliderDefault {
+    height: calc(100% - 35px);
+    overflow: hidden;
+}
+
+#drawToMakeAppear {
+    z-index: 1;
+    position: absolute;
+    cursor: url("../../../img/bancoCursor.png") 16 16, pointer;
+}
+
+#textHiddenContainer {
+    height: 100%;
+    background-color: black;
+}
+
+#textHiddenContainer p {
+    font-size: 3.2em;
+    color: white;
+    margin: auto;
+}
+
+.specialsChars {
+    font-family: "itc_zapf_dingbatsregular", Arial, sans-serif;
+}
+
+.specialsChars i {
+    position: relative;
+    width: 200%;
+    font-style: inherit;
+}
+
+.haveToDisapear:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    color: black;
+    content: attr(data-content);
+}
+
+#sliderScrollable {
+    width: 102%;
+    overflow: auto;
+    padding-right: 20px;
+}
+
+#slider figure {
+    width: 100%;
+    height: auto;
+    margin: 0 0 10px 0;
+}
+
+.sliderPictures {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    min-height: 0;
+    max-height: 100%;
+    height: auto;
+}
+
+#sliderDefaultMobile {
+    display: none;
+}
+
+/* -------------------------- ANIMATIONS -------------------------- */
+
+@keyframes smaller {
+    0% {
+        width: 35%;
+    }
+
+    100% {
+        width: 25%;
+    }
+}
+
+@keyframes bigger {
+    0% {
+        width: calc(65% - 30px);
+    }
+
+    100% {
+        width: calc(75% - 30px);
+    }
+}
+
+@keyframes smallerMobile {
+    0% {
+        margin-bottom: 40px;
+        font-size: 100%;
+    }
+
+    100% {
+        margin-bottom: 0;
+        font-size: 80%;
+    }
+}
+
+@keyframes smallerMobile2 {
+    0% {
+        height: 100px;
+        margin-bottom: 70px;
+    }
+
+    100% {
+        height: 60px;
+        margin-bottom: 25px;
+    }
+}
+
+@keyframes fontSizeReduce {
+    0% {
+        font-size: 100%;
+    }
+
+    100% {
+        font-size: 75%;
+    }
+}
+
+/* -------------------------- JAVASCRIPT CLASS -------------------------- */
+
+.projectsNonSelected {
+    font-size: 3.25em;
+}
+
+.projectSelected {
+    color: white;
+    text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black,
+    1px 0 0 black, 0 1px 0 black, -1px 0 0 black, 0 -1px 0 black;
+}
+
+.invisible {
+    display: none !important;
+    opacity: 0;
+}
+
+.notVisible {
+    visibility: hidden;
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.fadeOut {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+.smaller {
+    animation: smaller 0.5s ease forwards;
+}
+
+.bigger {
+    animation: bigger 0.5s ease forwards;
+}
+
+.fontSizeReduce {
+    animation: fontSizeReduce 0.5s ease forwards;
+    animation-delay: 0s;
+}
+
+.titleMouseOver {
+    transform: scale(1.1);
+    color: white;
+    text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black,
+    1px 0 0 black, 0 1px 0 black, -1px 0 0 black, 0 -1px 0 black;
+    cursor: pointer;
+}
+
+/* -------------------------- RESPONSIVE -------------------------- */
+
+@media (max-height: 600px) and (min-width: 1231px) {
+    main, #slider, #sidebar {
+        min-height: 550px;
+    }
+}
+
+@media (max-height: 600px) and (max-width: 1230px) {
+    #totalPageContent {
+        min-height: 700px;
+    }
+
+    #slider {
+        max-height: 550px !important;
+        margin-bottom: 0 !important;
+    }
+
+    #sliderDefault {
+        max-height: inherit !important;
+    }
+}
+
+@media (max-width: 1680px) {
+    h2, .projectsNonSelected {
+        font-size: 2.9em;
+    }
+
+    #textHiddenContainer p {
+        font-size: 2.8em;
+    }
+}
+
+@media (max-width: 1500px) {
+    h2, .projectsNonSelected {
+        font-size: 2.5em;
+    }
+
+    #textHiddenContainer p {
+        font-size: 2.4em;
+    }
+}
+
+@media (max-width: 1370px) {
+    h2, .projectsNonSelected {
+        font-size: 2.3em;
+    }
+
+    #textHiddenContainer p {
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 1230px) {
+    #totalPageContent {
+        width: 100%;
+    }
+
+    body {
+        display: flex;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    .headerSmallMobile {
+        min-height: 70px !important;
+        height: 70px !important;
+        border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+    }
+
+    header div, #sidebar {
+        border-right: none;
+    }
+
+    #slider {
+        width: 100%;
+        height: 100%;
+        max-height: calc(100vh - 205px);
+        margin-left: 0;
+        flex: 1;
+    }
+
+    #sliderDefault {
+        max-height: calc(100vh - 345px);
+    }
+
+    #sidebar {
+        display: flex;
+        width: 100%;
+        height: 100px;
+        margin: 0 0 70px 0;
+        border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+    }
+
+    #sidebarScrollable {
+        display: flex;
+        padding: 0 0 20px;
+        white-space: nowrap;
+        overflow: auto;
+    }
+
+    .projects {
+        display: flex;
+        margin: 0 30px 0 0;
+        padding-left: 0;
+    }
+
+    .projects p span {
+        display: none;
+    }
+
+    h2 {
+        margin: auto;
+    }
+
+    #sliderProjectTitle {
+        text-align: center;
+    }
+
+    .sliderPictures {
+        margin: auto;
+    }
+
+    .titleMouseOver {
+        transform: none;
+    }
+
+    .smallerMobile {
+        animation: smallerMobile 0.5s ease forwards;
+    }
+
+    .smaller {
+        animation: smallerMobile2 0.5s ease forwards;
+    }
+
+    .bigger {
+        animation: none;
+    }
+}
+
+@media (max-width: 700px) {
+    h2, .projectsNonSelected {
+        font-size: 2.1em;
+    }
+
+    #sidebar {
+        margin: 0 0 35px 0;
+    }
+
+    #sliderProjectTitle {
+        height: 45px;
+        line-height: 18px;
+    }
+
+    #sliderDefault {
+        max-height: calc(100vh - 300px);
+    }
+
+    #drawToMakeAppear, #textHiddenContainer {
+        display: none;
+    }
+
+    #sliderDefaultMobile {
+        display: flex;
+        flex-direction: column;
+        font-size: 2.5em;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    #sliderDefaultMobile p:nth-child(1) {
+        margin: 0;
+    }
+
+    #sliderDefaultMobile p:nth-child(2) {
+        margin: 0 auto;
+    }
+
+    #sliderImgContainer {
+        height: calc(100% - 57px);
+    }
+}
+
+@media (max-width: 600px) {
+    h2, .projectsNonSelected {
+        font-size: 2em;
+    }
+
+    #sidebar {
+        margin: 0 0 15px 0;
+    }
+
+    #sliderDefault {
+        max-height: calc(100vh - 285px);
+    }
+}
+
+@media (max-width: 530px) {
+    h2, .projectsNonSelected {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 450px) {
+    #sliderDefaultMobile {
+        font-size: 2.2em;
+    }
+}

@@ -1,0 +1,133 @@
+/* -------------------------- MAIN -------------------------- */
+
+main {
+    margin-top: 100px;
+    width: 70%;
+    min-width: 1000px;
+    min-height: 700px;
+    max-height: calc(100vh - 70px);
+    margin-bottom: 70px;
+    font-size: 1.1em;
+    line-height: 1.4em;
+}
+
+main, main > div {
+    display: flex;
+}
+
+main > div {
+    flex-direction: column;
+}
+
+main div div, main div p {
+    margin: 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 60px);
+    margin: 0 30px;
+    background-color: white;
+    z-index: 1;
+}
+
+h2 {
+    margin: 0;
+    font-weight: inherit;
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+#cursus h2, #contact h2, #workWith h2 {
+    margin-bottom: 35px;
+}
+
+#contact h2,  #qualifications h2, #exp h2, #expo h2 {
+    margin: 35px 0;
+}
+
+#secondSection, #thirdSection {
+    width: 36.25%;
+}
+
+/* -------------------------- FIRST-SECTION -------------------------- */
+
+#firstSection {
+    justify-content: space-between;
+    width: 27.5%;
+}
+
+#aboutLinks {
+    margin: 35px 0;
+}
+
+#printCVLink {
+    display: block;
+    margin-top: 35px;
+}
+
+#copyright {
+    font-size: 0.9em;
+}
+
+/* -------------------------- SECOND-SECTION -------------------------- */
+
+.pForMargin {
+    margin-bottom: 20px;
+}
+
+/* -------------------------- RESPONSIVE -------------------------- */
+
+@media (max-height: 600px) {
+    main {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-height: 600px) and (max-width: 1020px) {
+    #copyright {
+        bottom: 30px !important;
+    }
+
+    main {
+        margin-bottom: 80px !important;
+    }
+}
+
+@media (max-width: 1020px) {
+    #totalPageContent {
+        position: relative;
+    }
+
+    main {
+        flex-direction: column;
+        min-width: inherit;
+        width: 100%;
+        max-height: inherit;
+        margin-bottom: 130px;
+    }
+
+    #firstSection, #secondSection, #thirdSection {
+        width: 100%;
+    }
+
+    #copyright {
+        position: absolute;
+        bottom: 70px;
+        left: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    header {
+        margin: 0 25px;
+    }
+}
+
+@media (max-width: 400px) {
+    header {
+        margin: 0 20px;
+    }
+}

@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags("homepage") }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    {{ include("home/components/sidebar.html.twig") }}
+    {{ include("home/components/slider.html.twig") }}
+{% endblock %}
+
+{% block footer %}
+    {{ include("components/footer.html.twig") }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags("homepage") }}
+{% endblock %}

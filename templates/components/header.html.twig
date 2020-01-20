@@ -1,0 +1,30 @@
+<header>
+    <div id='h1Container'>
+        <h1 id='homeReturn'>{{ 'Margaux ' | capitalize }}{{ 'Passot' | capitalize }}</h1>
+    </div>
+
+    <nav>
+        <ul>
+            {% if is_granted('ROLE_ADMIN') %}
+                <span id="scrollingMenuContainer">
+                    <li id="scrollingMenuController">Admin</li>
+                    <ul id="scrollingMenu">
+                        {% if app.request.attributes.get("_route") != "projects_index" %}
+                            <li class="scrollingMenuLinks"><a href='{{ path("projects_index") }}'>Projects list</a></li>
+                        {% endif %}
+                        {% if app.request.attributes.get("_route") != "project_new" %}
+                            <li class="scrollingMenuLinks"><a href='{{ path("project_new") }}'>New project</a></li>
+                        {% endif %}
+                        <li class="scrollingMenuLinks"><a href='{{ path("logout") }}'>Logout</a></li>
+                    </ul>
+                </span>
+            {% endif %}
+            {% if app.request.attributes.get("_route") == "homepage" %}
+                <li><a href='{{ path("about") }}'>About</a></li>
+            {% else %}
+                <li><a href='{{ path("homepage") }}'>Projects</a></li>
+            {% endif %}
+            <li><a target="_blank" href="https://www.instagram.com/passotmargaux/">Instagram</a></li>
+        </ul>
+    </nav>
+</header>

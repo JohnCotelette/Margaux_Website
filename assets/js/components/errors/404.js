@@ -1,0 +1,1 @@
+import "../../../css/components/errors/404.css";

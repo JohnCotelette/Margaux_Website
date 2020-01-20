@@ -1,0 +1,38 @@
+/* -------------------------- MAIN -------------------------- */
+
+main {
+    display: flex;
+}
+
+/* -------------------------- MESSAGE -------------------------- */
+
+#errorMessageContainer {
+    position: relative;
+    top: -50px;
+    margin: auto;
+    text-align: center;
+    line-height: 1.4em;
+}
+
+#errorMessageContainer img {
+    width: 160px;
+    height: auto;
+}
+
+#errorRedirectLink {
+    font-weight: bold;
+}
+
+/* -------------------------- RESPONSIVE -------------------------- */
+
+@media (max-height: 700px) {
+    main {
+        min-height: 500px;
+    }
+}
+
+@media (max-width: 800px) {
+    #errorMessageContainer img {
+        width: 100px;
+    }
+}
