@@ -50,6 +50,10 @@ ul {
     list-style: none;
 }
 
+#totalPageContent, header {
+    min-width: 300px;
+}
+
 #totalPageContent {
     display: flex;
     flex-direction: column;
@@ -80,6 +84,7 @@ header {
     min-height: 100px;
     top: 0;
     left: 0;
+    z-index: 3;
 }
 
 header h1, header nav ul {
@@ -120,21 +125,53 @@ header h1 {
     cursor: pointer;
 }
 
-.adminLinks {
+#scrollingMenuContainer, #scrollingMenuContainer ul {
+    width: 120px;
+}
+
+#scrollingMenuContainer {
+    display: flex;
+    margin-top: -12px;
+    padding-top: 12px;
+    padding-bottom: 6px;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+}
+
+#scrollingMenuContainer:hover #scrollingMenu {
+    display: block;
+}
+
+#scrollingMenuController, #scrollingMenu {
+    display: block;
+}
+
+#scrollingMenuContainer, #scrollingMenu {
     color: white;
     background-color: rgb(51, 51, 51);
+}
+
+#scrollingMenuController {
     padding: 7px 12px;
+    margin: -7px auto 0 auto;
     border-radius: 3px;
-    margin-top: -7px;
     transition: background-color 0.3s ease;
 }
 
-.adminLinks a:hover {
-    color: rgb(250, 250, 250);
+#scrollingMenu {
+    display: none;
+    position: absolute;
+    top: 12px;
+    left: 0;
 }
 
-.adminLinks:hover {
-    background-color: rgb(60, 60, 60);
+.scrollingMenuLinks {
+    margin: 15px auto;
+}
+
+.scrollingMenuLinks a:hover {
+    color: rgb(235, 235, 235);
 }
 
 /* -------------------------- FOOTER -------------------------- */
@@ -240,7 +277,7 @@ footer a, footer span {
         margin: 0 25px;
     }
 
-    .adminLinks {
+    #scrollingMenuContainer {
         display: none;
     }
 }

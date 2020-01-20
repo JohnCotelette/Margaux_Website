@@ -211,6 +211,10 @@ form div ul li {
     width: 45%;
 }
 
+#project_date_month, #project_date_year {
+    padding: 6px 12px;
+}
+
 /* -------------------------- RESPONSIVE -------------------------- */
 
 @media (max-width: 900px) {
