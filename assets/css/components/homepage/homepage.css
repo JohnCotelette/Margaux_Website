@@ -456,6 +456,10 @@ h2 {
         margin: 0 0 15px 0;
     }
 
+    #sliderProjectTitle {
+        font-size: 0.8em;
+    }
+
     #sliderDefault {
         max-height: calc(100vh - 285px);
     }

@@ -92,7 +92,7 @@ form button:hover {
 }
 
 #returnListProjectControllerContainer {
-    position: absolute;
+    position: fixed;
     width: 15%;
     min-width: 260px;
     height: 50px;
@@ -226,12 +226,14 @@ form div ul li {
 @media (max-width: 500px) {
     header {
         margin: 0 25px;
+        width: calc(100% - 50px);
     }
 }
 
 @media (max-width: 400px) {
     header {
         margin: 0 20px;
+        width: calc(100% - 40px);
     }
 
     #scrollable {
