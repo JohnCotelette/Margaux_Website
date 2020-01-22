@@ -113,6 +113,10 @@ h2 {
         width: 100%;
     }
 
+    #workWith {
+        margin-top: 35px;
+    }
+
     #copyright {
         position: absolute;
         bottom: 70px;
@@ -123,11 +127,13 @@ h2 {
 @media (max-width: 500px) {
     header {
         margin: 0 25px;
+        width: calc(100% - 50px);
     }
 }
 
 @media (max-width: 400px) {
     header {
         margin: 0 20px;
+        width: calc(100% - 40px);
     }
 }
