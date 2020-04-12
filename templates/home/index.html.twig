@@ -1,5 +1,46 @@
 {% extends "base.html.twig" %}
 
+{% set title = "Margaux Passot - " %}
+{% set pageTitle =  "Directrice Artistique - Lille/France - Works" %}
+{% set description = "Margaux Passot, directrice artistique basée à Lille, France. Design éditorial / Identité visuelle / Webdesign / Print." %}
+
+{% block analytics %}
+    <!------------ GOOGLE ANALYTICS ------------>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157367614-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-157367614-1');
+    </script>
+    <!------------ END GOOGLE ANALYTICS ------------>
+{% endblock %}
+
+{% block title %}{{ parent() }}{{ pageTitle }}{% endblock %}
+
+{% block description %}
+{{ description }}
+{% endblock %}
+
+{% block index %}<meta name="robots" content="index, follow">{% endblock %}
+
+{% block og %}
+    <!------------ OG FACEBOOK ------------>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ app.request.uri }}" />
+    <meta property="og:title" content="{{ title ~ pageTitle }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:image" content="https://margauxpassot.com/og/shareImg.jpg" />
+    <!------------ END OG FACEBOOK ------------>
+    <!------------ OG TWITTER ------------>
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={{ app.request.uri }} />
+    <meta property="twitter:title" content="{{ title ~ pageTitle }}" />
+    <meta property="twitter:description" content="{{ description }}" />
+    <meta property="twitter:image" content="https://margauxpassot.com/og/shareImg.jpg" />
+    <!------------ END OG TWITTER ------------>
+{% endblock %}
+
 {% block stylesheets %}
     {{ encore_entry_link_tags("homepage") }}
 {% endblock %}
@@ -11,7 +52,23 @@
 {% endblock %}
 
 {% block footer %}
-    {{ include("components/footer.html.twig") }}
+    {% include("components/footer.html.twig") only %}
+{% endblock %}
+
+{% block sData %}
+    <script type="application/ld+json">
+        {
+            "@context" : "http://schema.org",
+            "@type" : "Organization",
+            "name" : "Margaux Passot",
+            "url" : "https://margauxpassot.com",
+            "sameAs" : [
+                "https://www.facebook.com/margaux.passot",
+                "https://fr.linkedin.com/in/margauxpassot",
+                "https://www.instagram.com/passotmargaux/"
+            ]
+        }
+    </script>
 {% endblock %}
 
 {% block javascripts %}

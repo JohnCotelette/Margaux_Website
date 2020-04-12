@@ -4,7 +4,7 @@
     {{ encore_entry_link_tags("projectNew") }}
 {% endblock %}
 
-{% block title %}New project{% endblock %}
+{% block title %}{{ parent() }}New project{% endblock %}
 
 {% block body %}
     <div id="container">

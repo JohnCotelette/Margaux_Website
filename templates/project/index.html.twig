@@ -4,7 +4,7 @@
     {{ encore_entry_link_tags("projectsList") }}
 {% endblock %}
 
-{% block title %}Project index{% endblock %}
+{% block title %}{{ parent() }}Project index{% endblock %}
 
 {% block body %}
     <div id="container">

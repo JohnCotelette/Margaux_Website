@@ -1,37 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
+        {% block analytics %}{% endblock %}
+
+        <!------------ TITLE AND DESCRIPTION ------------>
+        <title>{% block title %}Margaux Passot - {% endblock %}</title>
+        <meta name="description" content="{% block description %}Margaux Passot Website{% endblock %}">
+        <!------------ END TITLE AND DESCRIPTION ------------>
+
+        <!------------ ENCODING AND VIEWPORT ------------>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="format-detection" content="telephone=no">
-        <meta name="description" content="Margaux Passot, 25 ans, directrice artistique basée à Lille, France.">
+        <!------------ END ENCODING AND VIEWPORT ------------>
+
+        <!------------ INDEX ------------>
+        {% block index %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+        <!------------ END INDEX ------------>
+
+        {% block og %}{% endblock %}
+
+        <!------------ FAVICON ------------>
         <link rel="shortcut icon" type="image/png" href="{{ asset("build/images/fav.187e3028.png") }}">
+        <!------------ END FAVICON ------------>
 
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.margauxpassot.com" />
-        <meta property="og:title" content="Margaux Passot - Directrice Artistique - Lille/France - Works">
-        <meta property="og:description" content="Margaux Passot, 25 ans, directrice artistique basée à Lille, France." />
-        <meta property="og:image" content="{{ asset("build/images/shareImg.258f5eb9.jpg") }}" />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://www.margauxpassot.com" />
-        <meta property="twitter:title" content="Margaux Passot - Directrice Artistique - Lille/France - Works" />
-        <meta property="twitter:description" content="Margaux Passot, 25 ans, directrice artistique basée à Lille, France." />
-        <meta property="twitter:image" content="{{ asset("build/images/shareImg.258f5eb9.jpg") }}" />
-
-        <title>
-            {% block title %}
-                Margaux Passot - Directrice Artistique - Lille/France - Works
-            {% endblock %}
-        </title>
-
+        <!------------ WEBPACK CSS ------------>
         {{ encore_entry_link_tags("app") }}
         {% block stylesheets %}{% endblock %}
+        <!------------ END WEBPACK CSS ------------>
     </head>
 
     <body>
         <div id="totalPageContent">
-            {{ include("components/header.html.twig") }}
+            {% include("components/header.html.twig") only %}
 
             <main>
                 {% block body %}{% endblock %}
@@ -39,6 +40,8 @@
 
             {% block footer %}{% endblock %}
         </div>
+
+        {% block sData %}{% endblock %}
 
         {{ encore_entry_script_tags("app") }}
         {% block javascripts %}{% endblock %}

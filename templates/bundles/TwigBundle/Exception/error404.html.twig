@@ -1,10 +1,17 @@
 {% extends "base.html.twig" %}
 
+{% set pageTitle =  "Error, page not found :(" %}
+{% set description = "Margaux Passot Website - Page not found." %}
+
+{% block title %}{{ parent() }}{{ pageTitle }}{% endblock %}
+
+{% block description %}
+{{ description }}
+{% endblock %}
+
 {% block stylesheets %}
     {{ encore_entry_link_tags("404") }}
 {% endblock %}
-
-{% block title %}Error, page not found :({% endblock %}
 
 {% block body %}
     <div id="errorMessageContainer">

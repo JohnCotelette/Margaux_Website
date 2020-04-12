@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /adminConnect
+Disallow: /project/new
+Disallow: /projects
+
+Sitemap: https://margauxpassot.com/sitemap.xml

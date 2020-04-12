@@ -71,7 +71,6 @@ class Canvas {
         if(!this.dessin) return;
 
         this.ctx.globalCompositeOperation = "destination-out";
-        this.ctx.shadowBlur = 20;
         this.ctx.shadowColor = "black";
 
         this.ctx.lineWidth = 100;

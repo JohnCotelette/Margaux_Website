@@ -1,5 +1,46 @@
 {% extends "base.html.twig" %}
 
+{% set title = "Margaux Passot - " %}
+{% set pageTitle =  "Directrice Artistique - Lille/France - About" %}
+{% set description = "Margaux Passot, directrice artistique basée à Lille, France. Design éditorial / Identité visuelle / Webdesign / Print / About." %}
+
+{% block analytics %}
+    <!------------ GOOGLE ANALYTICS ------------>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157367614-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-157367614-1');
+    </script>
+    <!------------ END GOOGLE ANALYTICS ------------>
+{% endblock %}
+
+{% block title %}{{ parent() }}{{ pageTitle }}{% endblock %}
+
+{% block description %}
+{{ description }}
+{% endblock %}
+
+{% block index %}<meta name="robots" content="index, follow">{% endblock %}
+
+{% block og %}
+    <!------------ OG FACEBOOK ------------>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ app.request.uri }}" />
+    <meta property="og:title" content="{{ title ~ pageTitle }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:image" content="https://margauxpassot.com/og/shareImg.jpg" />
+    <!------------ END OG FACEBOOK ------------>
+    <!------------ OG TWITTER ------------>
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={{ app.request.uri }} />
+    <meta property="twitter:title" content="{{ title ~ pageTitle }}" />
+    <meta property="twitter:description" content="{{ description }}" />
+    <meta property="twitter:image" content="https://margauxpassot.com/og/shareImg.jpg" />
+    <!------------ END OG TWITTER ------------>
+{% endblock %}
+
 {% block stylesheets %}
     {{ encore_entry_link_tags("about") }}
 {% endblock %}
@@ -43,7 +84,7 @@
 
             <p>
                 &#x2461; 2013 - 2016<br>
-                Higher School of Art and Communication
+                Higher School of Art and Communication - Cambrai
             </p>
         </div>
 
@@ -51,7 +92,7 @@
             <h2>Experiences</h2>
             <p class="pForMargin">
                 &#x2460; 2019<br>
-                Artistic Director - Nash&Young
+                Art Director - Nash&Young
             </p>
 
             <p class="pForMargin">
@@ -66,7 +107,7 @@
         </div>
 
         <div id="qualifications">
-            <h2>Qualifications</h2>
+            <h2>Diploma</h2>
             <p>
                 &#x2B52; Master's Degree in Graphic Design and Art Direction<br>
                 &#x2192; Congratulations from the jury<br>
@@ -88,7 +129,7 @@
             <h2>Expo</h2>
             <p>
                 &#x2192; <a target="_blank" href="https://vimeo.com/337957322">Poster for Europe</a><br>
-                05.2019 - FH Aachen - Allemagne
+                05.2019 - FH Aachen - Germany
             </p>
         </div>
     </div>
