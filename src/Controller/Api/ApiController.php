@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/api/")
  */
-class ApiController extends AbstractController {
+final class ApiController extends AbstractController {
     /**
      * @Route("projects/{id}/pictures", name="API_get_project_pictures", requirements={"id"="\d+"}, methods={"GET"})
      * @param Project $project
@@ -20,9 +20,9 @@ class ApiController extends AbstractController {
      * @param int $id
      * @return JsonResponse
      */
-    public function getProjectPicturesLinks(Project $project,PictureRepository $pictureRepository, int $id) {
-        $pictures = $pictureRepository
-            ->findBy(["project" => $id]);
+    public function getProjectPicturesLinks(Project $project, PictureRepository $pictureRepository, int $id) :JsonResponse
+    {
+        $pictures = $pictureRepository->findBy(["project" => $id]);
 
         if (!$pictures || !$project) {
             return new JsonResponse(
@@ -33,7 +33,7 @@ class ApiController extends AbstractController {
 
         $picturesLinks = [];
 
-        forEach($pictures as $picture) {
+        foreach ($pictures as $picture) {
             $picturesLinks[] = $picture->getName();
         }
 

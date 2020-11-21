@@ -19,7 +19,7 @@ final class SitemapController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function index(Request $request)
+    public function index(Request $request) :Response
     {
         $hostname = $request->getSchemeAndHttpHost();
 
@@ -27,11 +27,11 @@ final class SitemapController extends AbstractController
         $this->urls[] = ["loc" => $this->generateUrl("about")];
 
         $response = new Response(
-            $this->renderView("sitemap/index.html.twig", [
+            $this->renderView("sitemap/index.xml.twig", [
                 "urls" => $this->urls,
                 "hostname" => $hostname
             ]),
-            200
+            Response::HTTP_OK
         );
 
         $response->headers->set("Content-Type", "text/xml");

@@ -47,11 +47,14 @@ class SideBarController extends Ajax {
 
                     newPicture.classList.add("sliderPictures");
                     newPicture.src = "project_img/" + picturesLinks[i];
-                    newPicture.alt = "Slider picture";
-
+                    newPicture.alt = response["projectDescription"];
 
                     newPictureContainer.appendChild(newPicture);
                     this.sliderScrollable.appendChild(newPictureContainer);
+
+                    newPicture.addEventListener("mousedown", (e) => {
+                        e.preventDefault();
+                    });
                 }
 
                 setTimeout(() => {

@@ -13,16 +13,6 @@
 }
 
 @font-face {
-    font-family: "HelveticaNowDisplayBlack";
-    src: local("fonts/Helvetica Now Display Black"), local("Helvetica-Now-Display-Black"),
-    url("fonts/HelveticaNowDisplay-Black.woff2") format("woff2"),
-    url("fonts/HelveticaNowDisplay-Black.woff") format("woff"),
-    url("fonts/HelveticaNowDisplay-Black.ttf") format("truetype");
-    font-weight: 900;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'itc_zapf_dingbatsregular';
     src: url('fonts/itczapfdingbats-webfont.woff2') format('woff2'),
     url('fonts/itczapfdingbats-webfont.woff') format('woff'),

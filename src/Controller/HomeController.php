@@ -7,14 +7,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+final class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="homepage", methods={"GET"})
      * @param ProjectRepository $projectRepository
      * @return Response
      */
-    public function index(ProjectRepository $projectRepository)
+    public function index(ProjectRepository $projectRepository) :Response
     {
         $projects = $projectRepository->findAllAndOrderByDatesDesc();
 

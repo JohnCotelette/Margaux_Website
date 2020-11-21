@@ -16,14 +16,14 @@ use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-class SecurityController extends AbstractController
+final class SecurityController extends AbstractController
 {
     /**
      * @Route("/adminConnect", name="login", methods={"GET", "POST"})
      * @param AuthenticationUtils $authenticationUtils
      * @return Response
      */
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(AuthenticationUtils $authenticationUtils) :Response
     {
         if ($this->getUser()) {
             return $this->redirectToRoute("projects_index");
@@ -53,7 +53,7 @@ class SecurityController extends AbstractController
      * @param MailService $mailService
      * @return Response
      */
-    public function forgotPassword(Request $request, UserRepository $userRep, MailService $mailService)
+    public function forgotPassword(Request $request, UserRepository $userRep, MailService $mailService) :Response
     {
         if ($request->getMethod() == "POST") {
             $user = $userRep->findOneBy(["email" => $request->get("email")]);
@@ -90,12 +90,14 @@ class SecurityController extends AbstractController
      * @Route("/resetPassword/{resetPasswordToken}", name="resetPassword", methods={"GET", "POST"})
      * @param Request $request
      * @param UserRepository $userRep
-     * @param ResetPasswordType $form
-     * @param string $resetPasswordToken
      * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param string $resetPasswordToken
      * @return Response
      */
-    public function resetPassword(Request $request, UserRepository $userRep, ResetPasswordType $form, string $resetPasswordToken, UserPasswordEncoderInterface $passwordEncoder)
+    public function resetPassword(Request $request,
+                                  UserRepository $userRep,
+                                  UserPasswordEncoderInterface $passwordEncoder,
+                                  string $resetPasswordToken) :Response
     {
         $user = $userRep->findOneBy(["passwordToken" => $resetPasswordToken]);
 

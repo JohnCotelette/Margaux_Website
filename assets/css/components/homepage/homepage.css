@@ -51,8 +51,7 @@ header div {
 
 h2 {
     margin: 0 35px 7px 0;
-    font-family: "HelveticaNowDisplayBlack", "Arial", sans-serif;
-    transition: color 0.42s ease, text-shadow 0.42s ease, transform 0.42s ease;
+    transition: all 0.4s ease;
     letter-spacing: 1px;
     line-height: 1em;
     transform-origin: left;
@@ -215,7 +214,7 @@ h2 {
 /* -------------------------- JAVASCRIPT CLASS -------------------------- */
 
 .projectsNonSelected {
-    font-size: 3.25em;
+    font-size: 4em;
 }
 
 .projectSelected {
@@ -287,7 +286,7 @@ h2 {
 
 @media (max-width: 1680px) {
     h2, .projectsNonSelected {
-        font-size: 2.9em;
+        font-size: 3.2em;
     }
 
     #textHiddenContainer p {
@@ -297,7 +296,7 @@ h2 {
 
 @media (max-width: 1500px) {
     h2, .projectsNonSelected {
-        font-size: 2.5em;
+        font-size: 3em;
     }
 
     #textHiddenContainer p {
@@ -307,7 +306,7 @@ h2 {
 
 @media (max-width: 1370px) {
     h2, .projectsNonSelected {
-        font-size: 2.3em;
+        font-size: 2.5em;
     }
 
     #textHiddenContainer p {

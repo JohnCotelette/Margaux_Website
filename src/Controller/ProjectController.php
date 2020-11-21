@@ -6,23 +6,23 @@ use App\Entity\Project;
 use App\Form\ProjectType;
 use App\Repository\ProjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/project")
  * @isGranted("ROLE_ADMIN")
  */
-class ProjectController extends AbstractController
+final class ProjectController extends AbstractController
 {
     /**
      * @Route("s", name="projects_index", methods={"GET"})
      * @param ProjectRepository $projectRepository
      * @return Response
      */
-    public function index(ProjectRepository $projectRepository): Response
+    public function index(ProjectRepository $projectRepository) :Response
     {
         $projects = $projectRepository->findAllAndOrderByDatesDesc();
 
@@ -36,7 +36,7 @@ class ProjectController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    public function new(Request $request): Response
+    public function new(Request $request) :Response
     {
         $project = new Project();
 
@@ -66,7 +66,7 @@ class ProjectController extends AbstractController
      * @param Project $project
      * @return Response
      */
-    public function edit(Request $request, Project $project): Response
+    public function edit(Request $request, Project $project) :Response
     {
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
@@ -92,7 +92,7 @@ class ProjectController extends AbstractController
      * @param Project $project
      * @return Response
      */
-    public function delete(Request $request, Project $project): Response
+    public function delete(Request $request, Project $project) :Response
     {
         if ($this->isCsrfTokenValid("delete".$project->getId(), $request->request->get("_token"))) {
             $em = $this
