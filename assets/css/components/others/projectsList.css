@@ -120,6 +120,11 @@ h2 {
     font-size: 1.1em;
 }
 
+.controllers {
+    outline: none;
+    cursor: pointer;
+}
+
 .controllers, #noProject {
     border-radius: 2px;
     transition: all 0.2s ease;

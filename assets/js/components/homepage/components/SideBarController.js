@@ -106,6 +106,10 @@ class SideBarController extends Ajax {
     initControls() {
         for (let i = 0; i < this.projectsLinks.length; i++) {
             this.projectsLinks[i].addEventListener("click", (e) => {
+                if (this.projectsLinks[i].classList.contains("projectSelected")) {
+                    return;
+                }
+
                 this.getPictures(this.projectsLinks[i].getAttribute("data-projectId"));
 
                 if (!this.state) {

@@ -51,7 +51,7 @@ header div {
 
 h2 {
     margin: 0 35px 7px 0;
-    transition: all 0.4s ease;
+    transition: transform 0.4s ease, color 0.4s ease, text-shadow 0.4s ease;
     letter-spacing: 1px;
     line-height: 1em;
     transform-origin: left;
@@ -94,10 +94,13 @@ h2 {
     overflow: hidden;
 }
 
+.hoverControllers, #drawToMakeAppear {
+    cursor: url("../../../img/bancoCursor.png") 16 16, pointer;
+}
+
 #drawToMakeAppear {
     z-index: 1;
     position: absolute;
-    cursor: url("../../../img/bancoCursor.png") 16 16, pointer;
 }
 
 #textHiddenContainer {
@@ -121,8 +124,21 @@ h2 {
     font-style: inherit;
 }
 
-.haveToDisapear:after {
+.haveToDisapear:after, .hoverControllers {
     position: absolute;
+}
+
+.hoverControllers {
+    width: 200%;
+    height: 180%;
+    top: -40%;
+    left: -50%;
+    content: "";
+    z-index: 2;
+    border-radius: 20px;
+}
+
+.haveToDisapear:after {
     top: 0;
     left: 0;
     z-index: 2;

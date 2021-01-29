@@ -2,13 +2,11 @@ security:
     encoders:
         App\Entity\User:
             algorithm: auto
-
     providers:
         app_user_provider:
             entity:
                 class: App\Entity\User
                 property: email
-
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -21,9 +19,7 @@ security:
             logout:
                 path: logout
             remember_me:
-                secret:   '%kernel.secret%'
+                secret: '%kernel.secret%'
                 lifetime: 604800
-
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/project, roles: ROLE_ADMIN }

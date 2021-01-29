@@ -3,6 +3,7 @@ class Canvas {
         this.canvasContainer = document.getElementById("sliderDefault");
         this.canvas = document.getElementById("drawToMakeAppear");
         this.haveToDisapearSymbols = document.getElementsByClassName("symbols");
+        this.hoverControllers = document.getElementsByClassName("hoverControllers");
 
         this.dessin = null;
         this.ctx = this.canvas.getContext("2d");
@@ -115,7 +116,17 @@ class Canvas {
         }, false);
 
         for (let i = 0; i < this.haveToDisapearSymbols.length; i++) {
-            this.haveToDisapearSymbols[i].addEventListener("mouseover", () => {
+            this.hoverControllers[i].addEventListener("mouseenter", () => {
+                this.hoverControllers[i].style.display = "none";
+
+                this.hideSymbols(this.haveToDisapearSymbols[i]);
+            })
+        }
+
+        for (let i = 0; i < this.haveToDisapearSymbols.length; i++) {
+            this.hoverControllers[i].addEventListener("touchmove", () => {
+                this.hoverControllers[i].style.display = "none";
+
                 this.hideSymbols(this.haveToDisapearSymbols[i]);
             })
         }
